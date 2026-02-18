@@ -1,4 +1,4 @@
-name: Django CI
+name: ocean-going CI
 
 on:
   push:
