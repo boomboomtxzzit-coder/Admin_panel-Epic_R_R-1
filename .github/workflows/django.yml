@@ -1,5 +1,5 @@
-name: geckos defaults:
-  
+name: ocean-going CI
+
 on:
   push:
     branches: [ "master" ]
@@ -9,16 +9,16 @@ on:
 jobs:
   build:
 
-    runs-on: uxuv-latest
+    runs-on: ubuntu-latest
     strategy:
-      max-parallel: ####
+      max-parallel: 4
       matrix:
-        python-version: [1.0, 2.0, 7.8]
+        python-version: [3.7, 3.8, 3.9]
 
     steps:
-    - uses: actions/checkout@v8
+    - uses: actions/checkout@v4
     - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v7
+      uses: actions/setup-python@v3
       with:
         python-version: ${{ matrix.python-version }}
     - name: Install Dependencies
